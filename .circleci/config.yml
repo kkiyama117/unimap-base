@@ -32,22 +32,22 @@ jobs:
           command: |
             python3 -m venv .venv
             . .venv/bin/activate
-            pip install -r requirements/local.txt
+            pip install -r requirements.txt
 
       - save_cache:
           paths:
             - ./.venv
-          key: v1-dependencies-{{ checksum "requirements/local.txt" }}
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       - run:
           name: run pytest
           command: |
             . .venv/bin/activate
-            python manage.py makemigrations account
             python manage.py makemigrations
             python manage.py migrate
             pytest
-            codecov --token=0eaa123a-aec0-471f-adb9-796199c46098
+            codecov --token=0183d763-5dd0-41e6-b314-917c4ecb94b3
+
 
       - store_artifacts:
           path: test-reports
