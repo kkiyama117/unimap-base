@@ -1,0 +1,5 @@
+include LICENSE
+include README.md
+recursive-inslude unimap-base/statics *
+recursive-inslude unimap-base/templates *
+recursive-inslude docs *

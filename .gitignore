@@ -1,2 +1,5 @@
+*.egg-info
 __pycache__/
-migrations/
+dist/
+unimap-base/migrations/
+
