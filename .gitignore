@@ -1,5 +1,13 @@
-*.egg-info
+.idea
+
+.DS_Store
+*.swp
+*.swo
+*.pyc
+*.egg-info/
 *__pycache__/
 dist/
+config/
 
-
+.venv
+venv
