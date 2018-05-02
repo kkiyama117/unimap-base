@@ -9,8 +9,8 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='unimap-base',
-    version='0.1.1-rc3',
-    packages=find_packages("unimap-base", exclude=["tests.*", ]),
+    version='0.1.1dev1',
+    packages=["unimap-base"],
     include_package_data=True,
     license='GPLv3',
     description='A simple Django app to manage university.',
@@ -20,6 +20,7 @@ setup(
     author_email='k.kiyama117@gmail.com',
     install_requires=['django', 'django-model-utils'],
     classifiers=[
+        'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Framework :: Django :: 2.0',
@@ -34,4 +35,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
+    # テストのパッケージを指定する
+    test_suite="unimap-base.tests",
 )
