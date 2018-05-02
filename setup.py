@@ -12,12 +12,13 @@ setup(
     version='0.1',
     packages=find_packages(),
     include_package_data=True,
-    license='GPLv3 License',  # example license
+    license='GPLv3',
     description='A simple Django app to manage university.',
     long_description=README,
     url='http://hinatan.jp/',
     author='kkiyama117',
     author_email='k.kiyama117@gmail.com',
+	install_requires = ['django', 'django-model-utils'],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',

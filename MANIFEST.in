@@ -1,5 +1,6 @@
 include LICENSE
 include README.md
+include requirements.txt
 recursive-inslude unimap-base/statics *
 recursive-inslude unimap-base/templates *
 recursive-inslude docs *
