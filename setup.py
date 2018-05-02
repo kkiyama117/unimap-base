@@ -10,7 +10,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='unimap-base',
     version='0.1.1-rc3',
-    packages=find_packages("unimap-base"),
+    packages=find_packages("unimap-base", exclude=["tests.*", ]),
     include_package_data=True,
     license='GPLv3',
     description='A simple Django app to manage university.',
@@ -18,13 +18,14 @@ setup(
     url='https://github.com/kkiyama117/unimap-base/',
     author='kkiyama117',
     author_email='k.kiyama117@gmail.com',
-	install_requires = ['django', 'django-model-utils'],
+    install_requires=['django', 'django-model-utils'],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
         'Framework :: Django :: 2.0',
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+        "License :: OSI Approved :: GNU General Public License "
+        "v3 or later (GPLv3+)",
         'Intended Audience :: Developers',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
