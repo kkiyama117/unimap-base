@@ -6,9 +6,10 @@
 *.pyc
 *.egg-info/
 *__pycache__/
-dist/
-
 .venv
 venv
 
+dist/
+
 db.sqlite3
+static/
