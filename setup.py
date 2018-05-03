@@ -9,8 +9,8 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='unimap-base',
-    version='0.1.1dev4',
-    packages=find_packages(exclude=['config', 'docs', 'unimap_base.tests']),
+    version='0.1.1.dev6',
+    packages=find_packages(exclude=['config', 'docs']),
     include_package_data=True,
     license='GPLv3',
     description='A simple Django app to manage university.',
@@ -19,6 +19,19 @@ setup(
     author='kkiyama117',
     author_email='k.kiyama117@gmail.com',
     install_requires=['django', 'django-model-utils'],
+    # setup.py内でpytestのimportが必要
+    setup_requires=[
+        'pytest-runner',
+    ],
+    tests_require=[
+        'pytest',
+        'pytest-cov',
+        'pytest-django',
+        'pytest-sugar',
+        'django-webtest',
+        'django-coverage-plugin',
+        'factory-boy',
+    ],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',

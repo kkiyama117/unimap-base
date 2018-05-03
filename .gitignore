@@ -1,17 +1,19 @@
 .idea
 
+.venv
+venv
 .DS_Store
 *.swp
 *.swo
 *.pyc
 *.egg-info/
+dist/
+build/
+
 *__pycache__/
 .pytest_cache
-.venv
-venv
-
-dist/
 .coverage
+
 
 db.sqlite3
 static/
