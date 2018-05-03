@@ -15,7 +15,7 @@ setup(
     license='GPLv3',
     description='A simple Django app to manage university.',
     long_description=README,
-    url='https://github.com/kkiyama117/unimap_base/',
+    url='https://github.com/kkiyama117/unimap-base/',
     author='kkiyama117',
     author_email='k.kiyama117@gmail.com',
     install_requires=['django', 'django-model-utils'],
