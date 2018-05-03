@@ -12,21 +12,6 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 VERSION = '0.1.1.dev7'
 
-
-class VerifyVersionCommand(install):
-    """Custom command to verify that the git tag matches our version"""
-    description = 'verify that the git tag matches our version'
-
-    def run(self):
-        tag = os.getenv('CIRCLE_TAG')
-
-        if tag != VERSION:
-            info = "Git tag: {0} does not match the version of this app: {1}".format(
-                tag, VERSION
-            )
-            sys.exit(info)
-
-
 setup(
     name='unimap-base',
     version=VERSION,
@@ -68,7 +53,4 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
-    cmdclass={
-        'verify': VerifyVersionCommand,
-    }
 )
