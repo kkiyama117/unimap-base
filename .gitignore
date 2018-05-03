@@ -7,12 +7,14 @@ venv
 *.swo
 *.pyc
 *.egg-info/
+.eggs
 dist/
 build/
 
 *__pycache__/
 .pytest_cache
 .coverage
+.tox
 
 
 db.sqlite3
