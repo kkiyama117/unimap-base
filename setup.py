@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='unimap-base',
-    version='0.1.1dev1',
+    version='0.1.1dev3',
     packages=["unimap_base"],
     include_package_data=True,
     license='GPLv3',
