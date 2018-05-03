@@ -36,3 +36,4 @@ virtualenv==15.2.0
 waitress==1.1.0
 WebOb==1.8.1
 WebTest==2.0.29
+wheel==0.31.0
