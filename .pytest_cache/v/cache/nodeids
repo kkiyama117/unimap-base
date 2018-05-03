@@ -1,9 +1,0 @@
-[
-  "unimap_base/tests/test_fix.py::UniversityTest::()::test_create_instance",
-  "unimap_base/tests/test_model.py::UniversityTest::()::test_create_instance[\\u4eac\\u90fd\\u5927\\u5b66-KU]",
-  "unimap_base/tests/test_model.py::UniversityTest::()::test_create_instance[\\u6771\\u4eac\\u5927\\u5b66-UT]",
-  "unimap_base/tests/test_model.py::UniversityTest::()::test_assertion[\\u4eac\\u90fd\\u5927\\u5b66-KU]",
-  "unimap_base/tests/test_model.py::UniversityTest::()::test_assertion[\\u6771\\u4eac\\u5927\\u5b66-UT]",
-  "unimap_base/tests/test_model.py::RoomTest::()::test_create_instance",
-  "unimap_base/tests/test_model.py::RoomTest::()::test_assertion"
-]

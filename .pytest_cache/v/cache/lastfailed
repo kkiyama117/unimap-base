@@ -1,5 +1,0 @@
-{
-  "unimap_base/tests/test_model.py::RoomTest::()": true,
-  "unimap_base/tests/test_model.py::UniversityTest::()": true,
-  "unimap_base/tests/test_tests.py::UniversityTest::()::test_create_instance": true
-}
