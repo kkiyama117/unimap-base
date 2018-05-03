@@ -1,5 +1,8 @@
 import os
+import sys
+
 from setuptools import setup, find_packages
+from setuptools.command.install import install
 
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
@@ -7,9 +10,26 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
+VERSION = '0.1.1.dev6'
+
+
+class VerifyVersionCommand(install):
+    """Custom command to verify that the git tag matches our version"""
+    description = 'verify that the git tag matches our version'
+
+    def run(self):
+        tag = os.getenv('CIRCLE_TAG')
+
+        if tag != VERSION:
+            info = "Git tag: {0} does not match the version of this app: {1}".format(
+                tag, VERSION
+            )
+            sys.exit(info)
+
+
 setup(
     name='unimap-base',
-    version='0.1.1.dev6',
+    version=VERSION,
     packages=find_packages(exclude=['config', 'docs']),
     include_package_data=True,
     license='GPLv3',
@@ -48,4 +68,7 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
+    cmdclass={
+        'verify': VerifyVersionCommand,
+    }
 )

@@ -1,9 +1,11 @@
 unimap-base
 ###########
 
- |circle| |coverage| |pyup| |pyup-python3|
+ |circle| |coverage| |pyup| |pyup-python3| |code climate|
 
 .. class:: no-web no-pdf
+
+.. section-numbering::
 
 Quick start
 ===========
@@ -39,3 +41,7 @@ Quick start
 .. |pyup-python3| image:: https://pyup.io/repos/github/kkiyama117/unimap-base/python-3-shield.svg
     :target: https://pyup.io/repos/github/kkiyama117/unimap-base/
     :alt: Python 3
+
+.. |code climate| image:: https://api.codeclimate.com/v1/badges/7aeba9eb7f370776b9d4/maintainability
+   :target: https://codeclimate.com/github/kkiyama117/unimap-base/maintainability
+   :alt: Maintainability
