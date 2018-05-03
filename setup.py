@@ -1,7 +1,7 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
-with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
+with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
 
 # allow setup.py to be run from any path
@@ -9,8 +9,8 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='unimap-base',
-    version='0.1.1dev3',
-    packages=["unimap_base"],
+    version='0.1.1dev4',
+    packages=find_packages(exclude=['config', 'docs', 'unimap_base.tests']),
     include_package_data=True,
     license='GPLv3',
     description='A simple Django app to manage university.',
