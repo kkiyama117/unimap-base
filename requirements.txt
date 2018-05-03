@@ -20,6 +20,7 @@ pygeocoder==1.2.5
 pytest==3.5.1
 pytest-cov==2.5.1
 pytest-django==3.2.1
+pytest-runner==4.2
 pytest-sugar==0.9.1
 python-dateutil==2.7.2
 pytz==2018.4
@@ -29,6 +30,7 @@ sqlparse==0.2.4
 termcolor==1.1.0
 text-unidecode==1.2
 tox==3.0.0
+unimap-base==0.1.1.dev6
 urllib3==1.22
 virtualenv==15.2.0
 waitress==1.1.0

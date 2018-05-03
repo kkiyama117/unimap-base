@@ -2,6 +2,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-python/ for more details
 #
+
 version: 2
 jobs:
   build:
@@ -46,9 +47,80 @@ jobs:
             python manage.py makemigrations
             python manage.py migrate
             pytest
-            codecov --token=0183d763-5dd0-41e6-b314-917c4ecb94b3
-
+            codecov --token=$CODE_COV_TOKEN
 
       - store_artifacts:
           path: test-reports
           destination: test-reports
+
+  deploy:
+    parallelism: 1
+    docker:
+      - image: circleci/python:3.6.1
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "requirements.txt" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv .venv
+            . .venv/bin/activate
+            pip install -r requirements.txt
+
+      - save_cache:
+          paths:
+            - ./.venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+
+      - run:
+          name: verify git tag vs. version
+          command: |
+            . .venv/bin/activate
+            python setup.py verify
+
+      - run:
+          name: init .pypirc
+          command: |
+            echo -e "[pypi]" >> ~/.pypirc
+            echo -e "username = kkiyama117" >> ~/.pypirc
+            echo -e "password = $PYPI_PASSWORD" >> ~/.pypirc
+
+      - run:
+          name: create packages
+          command: |
+            . .venv/bin/activate
+            python setup.py sdist bdist_wheel
+
+      - run:
+          name: upload to pypi
+          command: |
+            . venv/bin/activate
+            twine upload dist/*
+
+      - store_artifacts:
+          path: deploy-reports
+          destination: deploy-reports
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /[0-9]+(\.[0-9]+)*/
+            branches:
+              ignore: /.*/
