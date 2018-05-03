@@ -1,5 +1,5 @@
 import os
-from setuptools import find_packages, setup
+from setuptools import setup
 
 with open(os.path.join(os.path.dirname(__file__), 'README.md')) as readme:
     README = readme.read()
@@ -10,12 +10,12 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='unimap-base',
     version='0.1.1dev1',
-    packages=["unimap-base"],
+    packages=["unimap_base"],
     include_package_data=True,
     license='GPLv3',
     description='A simple Django app to manage university.',
     long_description=README,
-    url='https://github.com/kkiyama117/unimap-base/',
+    url='https://github.com/kkiyama117/unimap_base/',
     author='kkiyama117',
     author_email='k.kiyama117@gmail.com',
     install_requires=['django', 'django-model-utils'],
@@ -35,6 +35,4 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
-    # テストのパッケージを指定する
-    test_suite="unimap-base.tests",
 )

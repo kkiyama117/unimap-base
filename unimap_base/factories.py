@@ -1,6 +1,5 @@
 import factory
-
-from unimap import models
+from unimap_base import models
 
 
 class UniversityFactory(factory.DjangoModelFactory):
@@ -36,8 +35,6 @@ class BuildingFactory(factory.DjangoModelFactory):
 
 class RoomFactory(factory.DjangoModelFactory):
     name = "Kyokita22"
-    longitude = 0.0
-    latitude = 0.0
     floor = 2
     building = factory.SubFactory(BuildingFactory)
 

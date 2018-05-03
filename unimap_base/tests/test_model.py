@@ -1,8 +1,8 @@
 import pytest
 from django.core.exceptions import ValidationError
 
-from unimap.factories import RoomFactory
-from unimap.models import University, Room
+from unimap_base.factories import RoomFactory
+from unimap_base.models import University, Room
 
 
 class UniversityTest:

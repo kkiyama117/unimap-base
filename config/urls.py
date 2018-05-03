@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('unimap-base/', include('unimap-base.urls')),
+    path('unimap_base/', include('unimap_base.urls')),
 ]

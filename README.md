@@ -11,7 +11,7 @@
 
 2. Include the polls URLconf in your project urls.py like this::
 
-    path('unimap/', include('unimap-base.urls')),
+    path('unimap/', include('unimap_base.urls')),
 
 3. Run `python manage.py migrate` to create the unimap models.
 
