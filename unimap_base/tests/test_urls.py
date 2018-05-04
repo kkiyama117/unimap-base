@@ -3,15 +3,15 @@ from django.test import TestCase
 from django.urls import reverse
 from rest_framework import status
 
-from unimap_base.factories import UniversityFactory
+from unimap_base.factories import UniversityFactory, RoomFactory
 
 
 @pytest.mark.django_db
 class UnivUrlsTest(TestCase):
     @pytest.mark.django_db
     def test_valid(self):
-        university = UniversityFactory()
-        university.save()
+        room = RoomFactory()
+        room.save()
         urls = (reverse("university-list"),
                 reverse("campus-list"),
                 reverse("building-list"),
