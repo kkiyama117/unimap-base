@@ -11,5 +11,5 @@ router.register(r'buildings', BuildingViewSet, base_name="building")
 router.register(r'rooms', RoomViewSet, base_name="room")
 
 urlpatterns = [
-    path("api/", include(router.urls))
+    path("", include(router.urls))
 ]

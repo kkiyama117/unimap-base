@@ -59,8 +59,8 @@ Usage (it's alpha version so change suddenly and need to fix)
 1. Create models needed to make API by django admin site
 
 2. access to API
-   <your site url>/<url for unimap_base>/api/
-
+   <your site url>/<url for unimap_base>/<url for models>/
+   (e.x. localhost:8000/unimap/universities/)
 
 
 .. |circle| image:: https://circleci.com/gh/kkiyama117/unimap-base.svg?style=svg
