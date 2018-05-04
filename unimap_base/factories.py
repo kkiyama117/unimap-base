@@ -3,7 +3,7 @@ from unimap_base import models
 
 
 class UniversityFactory(factory.DjangoModelFactory):
-    name = 'Kyoto_Univ'
+    name = '京都大学'
     slug = "KU"
     longitude = 0.0
     latitude = 0.0
