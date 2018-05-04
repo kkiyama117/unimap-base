@@ -9,6 +9,7 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+        ordering = ["name", ]
 
     def __str__(self):
         return self.name
@@ -24,14 +25,20 @@ class Place(BaseModel):
 
 class University(Place):
     """大学を表すクラス"""
-    slug = models.SlugField(max_length=256)
+    slug = models.SlugField(max_length=32)
+
+    class Meta:
+        verbose_name_plural = "universities"
 
 
 class Campus(Place):
     """キャンパスを表すクラス"""
     name = models.CharField(max_length=256)
     university = models.ForeignKey(University, on_delete=models.CASCADE)
-    group = models.CharField(max_length=128, default=name)
+    group = models.CharField(max_length=128)
+
+    class Meta:
+        verbose_name_plural = "campuses"
 
 
 class Building(Place):
