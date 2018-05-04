@@ -83,6 +83,12 @@ jobs:
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       - run:
+          name: verify git tag vs. version in setup.py
+          command: |
+            . .venv/bin/activate
+            python setup.py verify
+
+      - run:
           name: init .pypirc
           command: |
             echo -e "[pypi]" >> ~/.pypirc
@@ -122,4 +128,4 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+\.[0-9]+\.[0-9]+$/
+              only: /.*/
