@@ -27,12 +27,18 @@ class University(Place):
     """大学を表すクラス"""
     slug = models.SlugField(max_length=32)
 
+    class Meta:
+        verbose_name_plural = "universities"
+
 
 class Campus(Place):
     """キャンパスを表すクラス"""
     name = models.CharField(max_length=256)
     university = models.ForeignKey(University, on_delete=models.CASCADE)
     group = models.CharField(max_length=128)
+
+    class Meta:
+        verbose_name_plural = "campuses"
 
 
 class Building(Place):
