@@ -10,7 +10,7 @@ with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
-VERSION = '0.2.0'
+VERSION = '0.2.2'
 
 
 class VerifyVersionCommand(install):
@@ -37,7 +37,7 @@ setup(
     url='https://github.com/kkiyama117/unimap-base/',
     author='kkiyama117',
     author_email='k.kiyama117@gmail.com',
-    install_requires=['django', 'django-model-utils'],
+    install_requires=['django', 'django-model-utils', "djangorestframework"],
     # setup.py内でpytestのimportが必要
     setup_requires=[
         'pytest-runner',

@@ -1,0 +1,7 @@
+setuptools
+tox
+twine
+pip
+pip-tools
+virtualenv
+wheel
