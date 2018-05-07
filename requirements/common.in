@@ -1,6 +1,5 @@
 beautifulsoup4
 Django
-django-allauth
 django-model-utils
 djangorestframework
 pygeocoder
