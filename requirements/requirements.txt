@@ -13,6 +13,7 @@ codecov==2.0.15
 coverage==4.5.1
 defusedxml==0.5.0         # via python3-openid
 django-allauth==0.35.0
+django-coverage-plugin==1.5.0
 django-debug-toolbar==1.9.1
 django-model-utils==3.1.1
 django-webtest==1.9.3
@@ -31,6 +32,7 @@ py==1.5.3                 # via pytest, tox
 pygeocoder==1.2.5
 pytest-cov==2.5.1
 pytest-django==3.2.1
+pytest-runner==4.2
 pytest-sugar==0.9.1
 pytest==3.5.1
 python-dateutil==2.7.2    # via faker
@@ -39,7 +41,7 @@ pytz==2018.4              # via django
 requests-oauthlib==0.8.0  # via django-allauth
 requests-toolbelt==0.8.0  # via twine
 requests==2.18.4          # via codecov, django-allauth, pygeocoder, requests-oauthlib, requests-toolbelt, twine
-six==1.11.0               # via faker, more-itertools, pip-tools, pytest, python-dateutil, tox, webtest
+six==1.11.0               # via django-coverage-plugin, faker, more-itertools, pip-tools, pytest, python-dateutil, tox, webtest
 sqlparse==0.2.4           # via django-debug-toolbar
 termcolor==1.1.0          # via pytest-sugar
 text-unidecode==1.2       # via faker

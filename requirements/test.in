@@ -1,5 +1,6 @@
 codecov
 coverage
+django-coverage-plugin
 django-debug-toolbar
 django-model-utils
 django-webtest
@@ -7,5 +8,6 @@ factory-boy
 pytest
 pytest-cov
 pytest-django
+pytest-runner
 pytest-sugar
 tox
