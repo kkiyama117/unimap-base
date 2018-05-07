@@ -1,0 +1,11 @@
+codecov
+coverage
+django-debug-toolbar
+django-model-utils
+django-webtest
+factory-boy
+pytest
+pytest-cov
+pytest-django
+pytest-sugar
+tox
