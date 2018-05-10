@@ -32,7 +32,7 @@ pytest-django==3.2.1
 pytest-runner==4.2
 pytest-sugar==0.9.1
 pytest==3.5.1
-python-dateutil==2.7.2    # via faker
+python-dateutil==2.7.3    # via faker
 pytz==2018.4              # via django
 requests-toolbelt==0.8.0  # via twine
 requests==2.18.4          # via codecov, pygeocoder, requests-toolbelt, twine
