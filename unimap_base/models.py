@@ -1,10 +1,9 @@
-from django.contrib.gis.db import models as gismodels
-from django.db import models
+from django.contrib.gis.db import models
 from model_utils.managers import InheritanceManager
 
 
 class BaseModel(models.Model):
-    """全モデルの基幹モデル
+    """基本モデルの基幹モデル
 
     django model utils の InheritanceManager を使う.
     """
@@ -20,83 +19,63 @@ class BaseModel(models.Model):
         return self.name
 
 
-class Location(models.Model):
-    """緯度経度を示す"""
-    latitude = models.FloatField(null=False, default=35.026304)
-    longitude = models.FloatField(null=False, default=135.780816)
-
-    objects = InheritanceManager()
-
-    class Meta:
-        unique_together = ("latitude", "longitude")
-        verbose_name_plural = "location"
-
-    def __str__(self):
-        return f"latitude: {self.latitude}, longitude: {self.longitude}"
+class Place(BaseModel):
+    """建物を表すクラス"""
+    location = models.PointField(unique=True)
 
 
-class AbstractPlace(BaseModel):
-    """場所を示す全てのクラスの元
-
-    location を持つ.
-    極限まで抽象化するならParentというForeignkeyを持たせて全ての建物,
-    敷地の入れ子を管理する事になるだろうがそこまでするかは要検討と思われる.
-    """
-    location = models.ForeignKey("Location", on_delete=models.CASCADE,
-                                 related_name="%(app_label)s_%(class)s"
-                                              "_location",
-                                 related_query_name="%(app_label)s_%(class)ss")
-
-    class Meta(BaseModel.Meta):
-        abstract = True
-
-
-class Place(AbstractPlace):
-    """大学に関係ない一般的な場所
-
-    基本的に `AbstaractPlace` と同じ"""
-    pass
-
-
-class University(AbstractPlace):
+class University(BaseModel):
     """大学を表すクラス"""
     slug = models.SlugField(max_length=32)
 
-    class Meta(AbstractPlace.Meta):
-        verbose_name_plural = "universities"
+    class Meta:
+        verbose_name = "大学"
+        verbose_name_plural = "大学"
 
 
-class Campus(AbstractPlace):
+class Campus(BaseModel):
     """キャンパスを表すクラス"""
     university = models.ForeignKey(University, on_delete=models.CASCADE)
+    # 京大の吉田キャンパス(本部構内, 吉田南構内 etc. を示すためのグループ)
     group = models.CharField(max_length=128)
+    border = models.MultiPolygonField(srid=4612)
 
-    class Meta(AbstractPlace.Meta):
-        verbose_name_plural = "campuses"
+    class Meta:
+        verbose_name = "キャンパス"
+        verbose_name_plural = "キャンパス"
 
 
-class Building(AbstractPlace):
+class Building(BaseModel):
     """建物を表すクラス"""
     campus = models.ForeignKey(Campus, on_delete=models.CASCADE)
+    location = models.PointField(unique=True)
+
+    class Meta:
+        verbose_name = "建物"
+        verbose_name_plural = "建物"
 
 
-class Room(AbstractPlace):
+class Room(BaseModel):
     """部屋を表す"""
     building = models.ForeignKey(Building, on_delete=models.CASCADE)
-    # Validator はmodelformを使うときだけ
-    floor = models.IntegerField()
+    floor = models.PositiveIntegerField()
+
+    class Meta:
+        verbose_name = "教室"
+        verbose_name_plural = "教室"
 
 
-class Border(gismodels.Model):
-    prefecture = gismodels.CharField('都道府県名', max_length=10)
-    branch = gismodels.CharField('支庁名', max_length=20, blank=True)
-    major_city = gismodels.CharField('群・政令市名', max_length=20, blank=True)
-    city = gismodels.CharField('市区町村名', max_length=20, blank=True)
-    code = gismodels.CharField('行政区域コード', max_length=5)
-    # longitude = models.FloatField()
-    # latitude = models.FloatField()
+class Border(models.Model):
+    """行政区域のクラス
 
-    border = gismodels.MultiPolygonField(srid=4612)
+    大学に関係ないところで使うか?"""
+    prefecture = models.CharField('都道府県名', max_length=10)
+    branch = models.CharField('支庁名', max_length=20, blank=True)
+    major_city = models.CharField('群・政令市名', max_length=20, blank=True)
+    city = models.CharField('市区町村名', max_length=20, blank=True)
+    code = models.CharField('行政区域コード', max_length=5)
+
+    border = models.MultiPolygonField(srid=4612)
 
     class Meta:
         verbose_name = "行政区域"

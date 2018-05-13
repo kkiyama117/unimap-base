@@ -23,3 +23,7 @@ def run(verbose=True):
     lm = LayerMapping(Border, border_shp, border_mapping, transform=False,
                       encoding='utf-8')
     lm.save(strict=True, verbose=verbose)
+
+
+if __name__ == '__main__':
+    run()

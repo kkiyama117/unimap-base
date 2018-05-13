@@ -1,11 +1,10 @@
 from django.contrib.gis import admin
 
-from .models import Room, Building, Campus, University, Place, Location, \
-    Border
+from .models import Room, Building, Campus, University, Place, Border
 from leaflet.admin import LeafletGeoAdmin
 
 
-class PlaceAdmin(admin.ModelAdmin):
+class PlaceAdmin(LeafletGeoAdmin):
     fieldsets = [
         ("Info", {'fields': ['name']}),
         ('Location', {'fields': ["location"]}),
@@ -17,22 +16,21 @@ class PlaceAdmin(admin.ModelAdmin):
 class UniversityAdmin(admin.ModelAdmin):
     fieldsets = [
         ("Info", {'fields': ['name', "slug"]}),
-        ('Location', {'fields': ["location"]}),
     ]
-    list_display = ('name', "location")
+    list_display = ('name',)
     list_filter = ['name']
 
 
-class CampusAdmin(admin.ModelAdmin):
+class CampusAdmin(LeafletGeoAdmin):
     fieldsets = [
         ("Info", {'fields': ['name', "group", "university"]}),
-        ('Location', {'fields': ["location"]}),
+        ('Location', {'fields': ["border"]}),
     ]
-    list_display = ('name', "university", "location")
+    list_display = ('name', "university", "border")
     list_filter = ['name', "group"]
 
 
-class BuildingAdmin(admin.ModelAdmin):
+class BuildingAdmin(LeafletGeoAdmin):
     fieldsets = [
         ("Info", {'fields': ['name', "campus"]}),
         ('Location', {'fields': ['location']}),
@@ -54,7 +52,6 @@ class BorderAdmin(LeafletGeoAdmin):
     list_filter = ('prefecture',)
 
 
-admin.site.register(Location)
 admin.site.register(Place, PlaceAdmin)
 admin.site.register(University, UniversityAdmin)
 admin.site.register(Campus, CampusAdmin)
