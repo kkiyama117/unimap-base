@@ -48,7 +48,7 @@ virtualenv==15.2.0
 waitress==1.1.0           # via webtest
 webob==1.8.1              # via webtest
 webtest==2.0.29           # via django-webtest
-wheel==0.31.0
+wheel==0.31.1
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
