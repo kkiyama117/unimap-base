@@ -33,7 +33,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install postgresql
-            psql -f sql/init_db.sql -U root -d circle_test
+            psql -f sql/init_db.sql -U root -d circle_test -h localhost -p 5432
 
       - run:
           name: install dependencies
