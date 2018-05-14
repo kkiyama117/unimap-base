@@ -32,7 +32,7 @@ jobs:
           name: initialize postgres
           command: |
             sudo apt-get update
-            sudo apt-get install postgresql-9.6
+            sudo apt-get install postgresql
             psql -f sql/init_db.sql -U root -d circle_test
 
       - run:
