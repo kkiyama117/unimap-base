@@ -1,8 +1,9 @@
 import pytest
+from django.contrib.gis.geos import Point
 from django.core.exceptions import ValidationError
 
 from unimap_base.factories import RoomFactory
-from unimap_base.models import University, Room, Location
+from unimap_base.models import University, Room
 
 
 class UniversityTest:
@@ -13,10 +14,7 @@ class UniversityTest:
     ])
     @pytest.mark.django_db
     def test_create_instance(self, name, slug):
-        location = Location(latitude=35.026304, longitude=135.780816)
-        location.save()
-        univ = University(id=1, name=name, slug=slug,
-                          location=location)
+        univ = University(id=1, name=name, slug=slug)
         univ.save()
         assert univ.name == name
         assert univ.slug == slug
@@ -29,10 +27,7 @@ class UniversityTest:
     ])
     @pytest.mark.django_db
     def test_assertion(self, name, slug):
-        location = Location(latitude=35.026304, longitude=135.780816)
-        location.save()
-        univ = University(id=1, name=name, slug=slug,
-                          location=location)
+        univ = University(id=1, name=name, slug=slug)
         try:
             univ.full_clean()
         except ValidationError as e:

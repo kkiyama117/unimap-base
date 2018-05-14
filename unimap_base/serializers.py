@@ -6,7 +6,7 @@ from unimap_base.models import University, Campus, Building, Room
 class UniversitySerializer(serializers.ModelSerializer):
     class Meta:
         model = University
-        fields = ("id", "name", "slug", "location")
+        fields = ("id", "name", "slug")
 
 
 class CampusSerializer(serializers.ModelSerializer):
@@ -14,7 +14,7 @@ class CampusSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Campus
-        fields = ('id', 'name', 'group', "location", "university")
+        fields = ('id', 'name', 'group', "university")
 
 
 class BuildingSerializer(serializers.ModelSerializer):
@@ -30,4 +30,4 @@ class RoomSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Room
-        fields = ("id", "name", "location", "floor", "building")
+        fields = ("id", "name", "floor", "building")
