@@ -1,2 +1,1 @@
-django-leaflet
 -r requirements/requirements.txt
