@@ -29,12 +29,18 @@ jobs:
           - v1-dependencies-
 
       - run:
+          name: initialize postgres
+          command: |
+            sudo apt-get update
+            sudo apt-get install postgresql-client-9.6
+            psql -f sql/init_db.sql -U root -d circle_test
+
+      - run:
           name: install dependencies
           command: |
             python3 -m venv .venv
             . .venv/bin/activate
             pip install -r requirements.txt
-            psql -f sql/init_db.sql -U root -d circle_test
 
       - save_cache:
           paths:
