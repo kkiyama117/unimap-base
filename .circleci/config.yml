@@ -29,13 +29,6 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: initialize postgres
-          command: |
-            sudo apt-get update
-            sudo apt-get install postgresql
-            psql -f sql/init_db.sql -U root -d circle_test -h localhost -p 5432
-
-      - run:
           name: install dependencies
           command: |
             python3 -m venv .venv
@@ -46,6 +39,14 @@ jobs:
           paths:
             - ./.venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
+
+      - run:
+          name: initialize postgres
+          command: |
+            . .venv/bin/activate
+            python manage.py makemigrations
+            python manage.py migrate
+            
 
       - run:
           name: run pytest
