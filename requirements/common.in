@@ -1,5 +1,8 @@
-beautifulsoup4
+# beautifulsoup4
 Django
 django-model-utils
 djangorestframework
+django-leaflet
 pygeocoder
+psycopg2
+psycopg2-binary
