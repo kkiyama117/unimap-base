@@ -2,9 +2,16 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
+from django.contrib.postgres.operations import CreateExtension
 
 
 class Migration(migrations.Migration):
     initial = True
     dependencies = [
+    ]
+    operations = [
+        CreateExtension('postgis'),
+        CreateExtension('postgis_topology'),
+        CreateExtension('fuzzystrmatch'),
+        CreateExtension('postgis_tiger_geocoder'),
     ]
