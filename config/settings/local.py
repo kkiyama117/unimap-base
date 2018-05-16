@@ -76,11 +76,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': "django.contrib.gis.db.backends.spatialite",
         'NAME': 'testgis',
         'USER': 'kiyama',
     },
 }
+
+SPATIALITE_LIBRARY_PATH = '/usr/lib/mod_spatialite'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
