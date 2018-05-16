@@ -38,7 +38,7 @@ setup(
     author='kkiyama117',
     author_email='k.kiyama117@gmail.com',
     install_requires=['django', 'django-model-utils', "djangorestframework",
-                      "psycopg2", "psycopg2-binary", "django-leaflet"],
+                      "django-leaflet"],
     # setup.py内でpytestのimportが必要
     setup_requires=[
         'pytest-runner',
