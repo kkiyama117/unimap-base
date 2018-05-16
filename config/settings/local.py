@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': "django.contrib.gis.db.backends.spatialite",
-        'NAME': 'testgis',
+        'NAME': 'db.sqlite3',
         'USER': 'kiyama',
     },
 }
