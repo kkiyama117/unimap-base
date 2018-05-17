@@ -47,7 +47,7 @@ tox==3.0.0
 tqdm==4.23.3              # via twine
 twine==1.11.0
 urllib3==1.22             # via requests
-virtualenv==15.2.0
+virtualenv==16.0.0
 waitress==1.1.0           # via webtest
 webob==1.8.1              # via webtest
 webtest==2.0.29           # via django-webtest
