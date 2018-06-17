@@ -26,7 +26,7 @@ more-itertools==4.1.0     # via pytest
 pip-tools==2.0.2
 pkginfo==1.4.2            # via twine
 pluggy==0.6.0             # via pytest, tox
-psycopg2-binary==2.7.4
+psycopg2-binary==2.7.5
 psycopg2==2.7.4
 py==1.5.3                 # via pytest, tox
 pygeocoder==1.2.5
