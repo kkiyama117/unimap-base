@@ -36,7 +36,7 @@ pytest-runner==4.2
 pytest-sugar==0.9.1
 pytest==3.5.1
 python-dateutil==2.7.3    # via faker
-pytz==2018.4              # via django
+pytz==2018.5              # via django
 requests-toolbelt==0.8.0  # via twine
 requests==2.18.4          # via codecov, pygeocoder, requests-toolbelt, twine
 six==1.11.0               # via django-coverage-plugin, faker, more-itertools, pip-tools, pytest, python-dateutil, tox, webtest
