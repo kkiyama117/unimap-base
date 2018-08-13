@@ -6,7 +6,7 @@
 #
 attrs==18.1.0             # via pytest
 beautifulsoup4==4.6.0
-certifi==2018.4.16        # via requests
+certifi==2018.8.13        # via requests
 chardet==3.0.4            # via requests
 click==6.7                # via pip-tools
 codecov==2.0.15
